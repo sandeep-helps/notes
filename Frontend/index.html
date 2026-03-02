@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enggnotes</title>
+<!-- ======================================================================================================================= -->
+                                       <!--all css , font and icons links are here -->
+<!-- ======================================================================================================================= -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+</head>
+<body>
+<!-- ======================================================================================================================= -->
+                                       <!-- Navbar header section -->
+<!-- ======================================================================================================================= -->
+    <header class="header">
+        <nav id="nav-dark" class="navbar">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none"><h2 class="logo-heading">Enggnotes</h2></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars hamburger-icon"></i>
+                <i class="fas fa-times cross-icon"></i>
+            </div>
+            <div class="menu">
+                <ul  class="menu-list">
+                    <li id="b1" class="menu-list-items  " id="home"  >
+                        <a  class="links" href="#home">
+                            Home 
+
+                        </a>
+                    </li>
+                    <li id="b2" class="menu-list-items">
+                        <a class="links" href="#portfolio">
+                            Notes
+                        </a>
+                    </li>
+                    <li id="b3" class="menu-list-items">
+                        <a class="links" href="#about">
+                            About
+                        </a>
+                    </li>
+                    <li id="b4" class="menu-list-items">
+                        <a class="links" href="#services">
+                            Computer
+                        </a>
+                    </li>
+                    <li id="b5" class="menu-list-items">
+                        <a class="links" href="#box1">
+                            Projects
+                        </a>
+                    </li>
+                    <li id="b6" class="menu-list-items">
+                        <a class="links" href="#contact">
+                            Contact Me
+                        </a>
+                    </li>
+                    <!-- New Donate Button in Navbar -->
+                    
+                    <a href="/Frontend/HTML/login.html"><button class="common-btn" id="loginbtn"><i class="ri-account-circle-line">Login</i> </button></a>
+               
+                    <!-- <button class="common-btn" id="Dark"><i class="fa-regular fa-moon"></i></button>          -->
+               
+                    <label class="label">
+                        <div class="toggle">
+                            <input class="toggle-state" type="checkbox" name="check" value="check">
+                            <div class="indicator"></div>
+                        </div>
+                    </label>
+                </ul>
+            </div>
+        </nav>
+    </header>
+<!-- ======================================================================================================================= -->
+                                        <!-- Main hero banner -->
+<!-- ======================================================================================================================= -->
+ <section id="home" class="hero">
+    <hr>
+        <div id="animatedimg" class="animated-image " data-aos="zoom-in" data-aos-delay="200">
+            <img src="/Frontend/IMAGES/hero-img.png" id="hero-imagex" class="img-fluid animated" alt="">
+          </div>
+        <div class="intro">
+            
+            <div class="headings">
+                
+                <div class="card" id="card-me">
+                    
+                 </div>
+                
+                <h2 class="greet-heading" id="d1">Engineering Notes Download Portal</h2>
+                <h3 class="my-heading" id="wel">Welcome to the Engineering Notes<br> Download Portal</h3>
+                <h3 class="sub-heading" id="wel2">
+                    This portal provides free access to IT course materials including PDFs,<br> notes, and other resources for students.
+                </h3>
+            </div>
+            <div class="intro-buttons">
+               <a href="#a1"> <button class="btn common-btn">Get Notes</button></a>
+               <a href="#services"><button class="btn common-btn" >Computer</button></a>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+<!-- ======================================================================================================================= -->
+                                       <!-- Portfolio Section -->
+<!-- ======================================================================================================================= -->
+<section class="portfolio" id="portfolio">
+        <div class="portfolio-heading">
+            <hr>
+            <h1 id="a1" class="my-heading text-center">Select your branch</h1>
+        </div>
+        <div class="portfolio-content">
+            <div class="my-row">
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/cse.jpg" 
+                                 alt="CSE">
+                        </div>
+                        <h3 class="greet-heading blue-text">Computer Science and Engineering (CSE)</h3>
+                       <a id="cse1" href="cse.html"> <button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/it.webp" 
+                                 alt="Information Technology (IT)">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            Information Technology (IT)
+                          </h3>
+                          <a href="cse.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+
+
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/EE.jpeg" alt="SEO Image">
+                        </div>
+                        <h3 class="greet-heading blue-text">Electrical Engineering (EE)</h3>
+                        <a href="/Frontend/HTML/ee.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-row">
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/ecs.png" 
+                                 alt="Content Writting Image">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                             Engineering (ECE)
+                          </h3>
+                          <a href="/Frontend/HTML/ece.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i> </button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/mca.webp" 
+                                 alt="MCA Image">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            MASTER OF COMPUTER APPLICATION
+                          </h3>
+                          <a href="mca.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/mtech.jpg" alt="M.TECH IMAGE" >
+                                 
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            MASTER OF TECHNOLOGY 
+                          </h3>
+                          <a href="mtech.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>                
+            </div>  
+            </div>
+            <div class="my-row">
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/ai.jpg" 
+                                 alt=" Artificial Intelligence and Data Science">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            Artificial Intelligence and Data Science
+                          </h3>
+                          <a href="cse.html"> <button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/cf.jpg" 
+                                 alt="Cyber Security and Forensics">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            Cyber Security and Forensics
+                          </h3>
+                          <a href="/Frontend/HTML/cyber.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/bca.png" 
+                                 alt="Bachelor of Computer Applications (BCA)">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            Bachelor of Computer Applications (BCA)
+                          </h3>
+                          <a href="/Frontend/HTML/bca.html"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>               
+            </div>
+        </div>
+        <hr>
+    </section>
+</div>
+<!-- ======================================================================================================================= -->
+                                      <!-- About Section -->
+<!-- ======================================================================================================================= -->
+<section id="about" class="about">
+        <div class="about-text">
+            <hr>
+            <h1 class="my-heading" id="aboutd">About Me</h1>
+
+            <style>
+            #para{
+                font-size: 18px;
+                line-height: 1.7;
+            }
+            .bold{
+                font-weight: 700;
+            }
+            .underline{
+                text-decoration: underline;
+            }
+            .highlight{
+                font-weight: 800;
+                text-decoration: underline;
+            }
+            </style>
+
+        <p class="lead-para" id="para" style="font-size: 20px;">
+        I am <span class="bold">Sandeep Sharma</span>, 
+        a Computer Science and Engineering undergraduate at Teerthanker Mahaveer University with a strong interest in 
+        <span class="underline">data science</span>, 
+        <span class="underline">machine learning</span>, and 
+        <span class="underline">full-stack development</span>.
+        I enjoy building practical, real-world solutions and have worked on projects such as 
+        <span class="bold">BloodBank+</span>, <span class="bold">Enggnotes</span>, and multiple ML models for prediction and classification tasks. 
+        My technical toolkit includes <span class="underline">Python, R, Java, SQL, C++</span> along with frameworks like 
+        TensorFlow, Scikit-learn, Keras and tools such as Pandas, NumPy, and Tableau. 
+        I am a national-level <span class="highlight">Smart India Hackathon 2025 Winner </span>, 
+        where I contributed to backend development, data processing, and system design in a collaborative team environment under strict timelines. 
+        As a Data Science Intern at CodeSoft, I strengthened my skills in data preprocessing, model building, and evaluation. 
+        I am a fast learner, effective communicator, and team player passionate about AI, automation, and solving impactful problems through technology.
+    </p>
+    <A href="https://www.canva.com/design/DAGpaG_eDzo/PrdFTCSu3viIrqr4iCnKtA/view?utm_content=DAGpaG_eDzo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6527de695a"><button class="common-btn" style="margin-top: 50px; color: black;">Download Resume</button></A>
+    </div>
+    <div class="about-image">
+    <img id="about-image2" src="/Frontend/images/me.webp" alt="About Image" style="height: 500px;">
+    <hr>
+    </div>
+    </section>
+<!-- ======================================================================================================================= -->
+                                       <!-- Computer notes Section -->
+<!-- ======================================================================================================================= -->
+<section class="services" id="services">
+    <hr>
+        <div class="portfolio-heading"></div>
+            <h1 id="note1"   class="my-heading text-center">Notes <i class="ri-arrow-down-circle-line"></i></h1>
+        </div>
+        <div class="portfolio-content">
+            <div class="my-row">
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/sql.avif" 
+                                 alt="Web Design Image">
+                        </div>
+                        <h3 class="greet-heading blue-text">Sql</h3>
+                       <a id="cse1" href="https://drive.google.com/drive/folders/1jS53NOczuiQzrOMRYhoXevq2vviQBvnX?usp=sharing"> <button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/cpp.png" 
+                                 alt="Information Technology (IT)">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            C++
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1rwZFh-gnloCW_tE1eGOjhepFZlh7gaQP?usp=sharing"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div> 
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/c.webp" alt="C">
+                        </div>
+                        <h3 class="greet-heading blue-text">C</h3>
+                        <a href="https://drive.google.com/drive/folders/1t5Scop7XNk9JJ-Klz09RNdCBsMnB25A_?usp=sharing"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-row">
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/java.webp" 
+                                 alt="java Image">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            JAVA
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1fwz0ItyKSswKEg8r5xJ_mQloEKsyYhSM?usp=sharing"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/html.jpg" 
+                                 alt="html Image">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            HTML
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1Otd06HZr5YEDu_ONSTmJ7kK3_7mYmHP_?usp=sharing"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/css.jpg" alt="css image" >
+                                 
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                           CSS
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1UbVtTacyJ0i8vfPMS2ewrbEC0Ss77sam?usp=sharing"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>                
+            </div>  
+            </div>
+            <div class="my-row">
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/js.png" 
+                                 alt=" JAVA SCRIPT">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            JAVA SCRIPT
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1w08eUYOt5-Ace3FQ1_W1ql1VRZ9NHzmC?usp=sharing"> <button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/py.jpg" 
+                                 alt="PYTHON">
+                        </div>
+                        <h3 id="name-text" class="greet-heading blue-text">
+                           PYTHON
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1okmK7r5UlNA4bD6Z07CVubR9KK281S46?usp=sharing"><button class="btn common-btn">Get Notes <i class="ri-arrow-down-circle-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="my-col">
+                    <div class="my-card port-card">
+                        <div class="image">
+                            <img src="/Frontend/images/dsa.png" 
+                                 alt="DSA C++">
+                        </div>
+                        <h3 class="greet-heading blue-text">
+                            DSA
+                          </h3>
+                          <a href="https://drive.google.com/drive/folders/1tOfOWks2hs6JeOBGJG19izFpAvtgjZUx?usp=sharing"><button class="btn common-btn">Get Notes </button></a>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+    </section class="proj" id="project" >
+
+
+<hr>
+
+    <div class="div-of-social">
+       
+<div class="container">
+  <div data-text="Github" style="--r:-15;" class="glass">
+    <a href="https://github.com/sandeep-helps"><i class="fa-brands fa-github"></i> </a>
+    <div class="likecounterbtn">
+        <a class="link-of-socialmedias" >GitHub</a>
+    </div>
+</div>
+  
+  <div data-text="Code" style="--r:5;" class="glass">
+    <i class="fa-solid fa-code"></i>
+    <div class="likecounterbtn">
+        <a class="link-of-socialmedias">Codes</a>
+    </div>
+  </div>
+
+
+  <div data-text="Instagram" style="--r:25;" class="glass">
+    
+    <a href="https://www.instagram.com/sep_x5/"><i class="fa-brands fa-instagram"></i></a>
+    <div class="likecounterbtn">
+        <a class="link-of-socialmedias">Instagram</a>
+    </div>
+</div>
+
+
+<div data-text="Facebook" style="--r:25;" class="glass">
+    <a href="https://www.facebook.com/share/VGHSKxo3FFs6qRCh/"><i class="fa-brands fa-facebook"></i></a>
+    <div class="likecounterbtn">
+        <a class="link-of-socialmedias"> Facebook</a>
+    </div>
+</div>
+
+
+<div data-text="Twitter" style="--r:25;" class="glass">
+   
+    <a href="https://x.com/SandeepsHelp"><i class="fa-brands fa-twitter"></i></a>
+    <div class="likecounterbtn">
+        <a class="link-of-socialmedias"> Twitter</A>
+    </div>
+</div>
+
+<div data-text="LinkedIn" style="--r:25;" class="glass">
+    <a  href="https://www.linkedin.com/in/sandeep-sharma-b1a91b29a/"><i class="fa-brands fa-linkedin"></i></a>
+    <div class="likecounterbtn">
+       <a class="link-of-socialmedias">Linked</a>
+    </div>
+
+</div>
+
+</div>
+</div>
+<!-- ======================================================================================================================= -->
+                                       <!--all project links are here -->
+<!-- ======================================================================================================================= -->       
+        
+<hr>        
+<div class="box" id="box1" >
+            <h1 id="lx">Html css projects for biginners</h1>
+            <ul id="ullist">
+                <a href="https://www.google.com"><li id="listid0" class="list1">Calculator</li></a>
+                <a  href="https://github.com/sandeep-helps"><li id="listid1" class="list1">Login page</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid2" class="list1">Sign up page</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid3" class="list1">Portfolio</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid4" class="list1">Navebare</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid5" class="list1">Coffie landing page</li></a>
+                <br><br>
+                <a href="https://github.com/sandeep-helps"><li id="listid6" class="list1">Age Calculator</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid7" class="list1">Price tracker</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid8" class="list1">Youtube video downloader</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid9" class="list1">Side-bare</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid10" class="list1">Digital clock</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid11" class="list1">Home page</li></a>
+                <br><br>
+                <a href="https://github.com/sandeep-helps"><li id="listid12" class="list1">Binary Calculator</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid13" class="list1">Online Learning Platform</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid14" class="list1">Digital Agency</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid15" class="list1">Art Gallery</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid16" class="list1">Music Vibes</li></a>
+                <br><br>
+                <a href="https://github.com/sandeep-helps"><li id="listid17" class="list1">Travel Explorer</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid18" class="list1">Fitness Pro</li></a>
+                <a href="https://github.com/sandeep-helps"><li id="listid19" class="list1">Food Delivery Service</li></a>
+            </ul>
+            
+        </div>
+        <hr>
+    <section>
+<!-- ======================================================================================================================= -->
+                                       <!-- Contact me section -->
+<!-- ======================================================================================================================= -->
+    </section>
+   
+    <section  class="contact" id="contact">
+        
+        <div class="contact-heading">
+            <h1 class="my-heading text-center">Contact Me</h1>
+        </div>
+        
+        <div class="contact-content">
+
+            <div class="input-group">
+                <label id="name" for="signup-name">Name</label>
+                <input class="feedback-input" type="text" id="signup-name" name="signup-name" required>
+                <br>
+                <label id="email" for="signup-email">Email</label>
+                <input class="feedback-input" type="email" id="signup-email" name="signup-email" required>
+                <label id="comment" for="signup-email">Comment</label>
+                <input class="feedback-input" type="text">
+                <button class="common-btn" id="loginbtn">Submit</button>
+            </div>
+            <div class="contact-form-container">               
+                <h1 id="getintouch" class="greet-heading">Get In Touch</h1>
+            <div class="contact-details">
+                <h1 id="mycontect" class="greet-heading">My Contact Details</h1>
+                <div class="details">
+                    <h5 id="email2" class="contact-heading">EMAIL</h5>
+                    <p id="myemail" class="contact-text">sandeeps.help@gmail.com</p>
+                </div>
+                <div class="details">
+                    <h5 id="phone" class="contact-heading">PHONE</h5>
+                    <p id="phoneno" class="contact-text">+91 9135612405</p>
+                </div>
+                <div class="details">
+                    <h5 id="fax" class="contact-heading">FAX</h5>
+                    <p id="phoneno2" class="contact-text">+91 91*******2405</p>
+                </div>
+                <div class="details">
+                    <h5 id="address" class="contact-heading">ADDRESS</h5>
+                    <p id="moradabad" class="contact-text">Moradabad (TMU) , CS</p>
+                    
+                </div>
+            </div>
+        </div>        
+    </section>
+
+<!-- ======================================================================================================================= -->
+                                       <!-- Footer section -->
+<!-- ======================================================================================================================= -->
+<footer id="ft" class="footer">
+        <hr>
+        <div   class="footer-content text-center">
+            <h1 class="name-myname">SANDEEP SHARMA</h1>
+            <h3>MORADABAD , INDIA</h3>
+            
+           
+            <div  class="social-links">
+                <div  class="footer-menu">
+                    <ul class="footer-menu-list">
+                        <li id="facebook"  class="footer-list-items">
+                            <a class="footer-links" href="https://www.facebook.com/share/VGHSKxo3FFs6qRCh/">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://x.com/SandeepsHelp">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://www.instagram.com/sep_x5/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://www.linkedin.com/in/sandeep-sharma-b1a91b29a/">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://github.com/sandeep-helps">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h4 id="Copyrightsection">
+               | Copyright © 2023 All rights reserved |
+                <BR>
+                This portal provides free access to IT course materials including PDFs,
+                notes, and other resources for students.
+                  by Mr Sandeep Sharma.
+            </h4>
+        </div>
+    </footer>
+    
+</section>
+
+<!-- ======================================================================================================================= -->
+                                       <!-- all script are here -->
+<!-- ======================================================================================================================= -->
+
+<script src="svgscript.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="JAVASCRIPT/script.js"></script>
+    <script src="scriptfordarkmode.js"></script>
+    <script src="JAVASCRIPT/auth.js"></script>
+
+</body>
+</html>

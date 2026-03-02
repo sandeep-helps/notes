@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Enggnotes</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+    <link rel="stylesheet" href="/Frontend/CSS/comman.css">
+    <link rel="stylesheet" href="/Frontend/CSS/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="header admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Enggnotes - Admin Panel</h1>
+            </div>
+            <div class="user-info">
+                <div class="admin-badge">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Super Admin</span>
+                </div>
+                <button class="btn btn-danger" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <div class="container">
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon pending">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="pendingCount">24</h3>
+                    <p>Pending Approvals</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon total">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalNotes">156</h3>
+                    <p>Total Notes</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon users">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalUsers">89</h3>
+                    <p>Total Users</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon downloads">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalDownloads">2,456</h3>
+                    <p>Total Downloads</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Tabs -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showTab('pending')">
+                <i class="fas fa-clock"></i> Pending Approvals
+            </button>
+            <button class="tab-btn" onclick="showTab('notes')">
+                <i class="fas fa-book"></i> Manage Notes
+            </button>
+            <button class="tab-btn" onclick="showTab('users')">
+                <i class="fas fa-users"></i> Manage Users
+            </button>
+            <button class="tab-btn" onclick="showTab('courses')">
+                <i class="fas fa-graduation-cap"></i> Manage Courses
+            </button>
+            <button class="tab-btn" onclick="showTab('reports')">
+                <i class="fas fa-chart-bar"></i> Reports
+            </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content">
+            <!-- Pending Approvals Tab -->
+            <div id="pending-tab" class="tab-pane active">
+                <div class="tab-header">
+                    <h2><i class="fas fa-clock"></i> Pending Approvals</h2>
+                    <div class="filter-controls">
+                        <select id="pendingFilter" class="form-control" onchange="filterPending()">
+                            <option value="all">All Courses</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="ME">ME</option>
+                            <option value="CE">CE</option>
+                            <option value="EE">EE</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="pending-list" id="pendingContainer">
+                    <!-- Pending items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Manage Notes Tab -->
+            <div id="notes-tab" class="tab-pane">
+                <div class="tab-header">
+                    <h2><i class="fas fa-book"></i> Manage Notes</h2>
+                    <div class="search-box">
+                        <input type="text" id="searchNotesAdmin" class="form-control" 
+                               placeholder="Search notes...">
+                        <button class="btn btn-primary" onclick="searchNotesAdmin()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Course</th>
+                                <th>Uploaded By</th>
+                                <th>Upload Date</th>
+                                <th>Status</th>
+                                <th>Downloads</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="notesTableBody">
+                            <!-- Notes table rows will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Manage Users Tab -->
+            <div id="users-tab" class="tab-pane">
+                <div class="tab-header">
+                    <h2><i class="fas fa-users"></i> Manage Users</h2>
+                    <button class="btn btn-primary" onclick="addNewUser()">
+                        <i class="fas fa-user-plus"></i> Add New User
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Join Date</th>
+                                <th>Status</th>
+                                <th>Uploads</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users table rows will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Manage Courses Tab -->
+            <div id="courses-tab" class="tab-pane">
+                <div class="tab-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Manage Courses</h2>
+                    <button class="btn btn-primary" onclick="addNewCourse()">
+                        <i class="fas fa-plus"></i> Add Course
+                    </button>
+                </div>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Computer Science (CSE)</h3>
+                            <span class="students-count">245 Students</span>
+                        </div>
+                        <div class="course-stats">
+                            <div class="stat">
+                                <span class="stat-value">156</span>
+                                <span class="stat-label">Notes</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">1,245</span>
+                                <span class="stat-label">Downloads</span>
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-outline" onclick="editCourse('CSE')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteCourse('CSE')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <!-- More course cards -->
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports-tab" class="tab-pane">
+                <div class="tab-header">
+                    <h2><i class="fas fa-chart-bar"></i> Reports & Analytics</h2>
+                    <div class="date-range">
+                        <input type="date" id="startDate" class="form-control">
+                        <span>to</span>
+                        <input type="date" id="endDate" class="form-control">
+                        <button class="btn btn-primary" onclick="generateReport()">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Uploads by Course</h3>
+                        <div class="chart-container">
+                            <canvas id="courseChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Monthly Growth</h3>
+                        <div class="chart-container">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Top Contributors</h3>
+                        <div class="contributors-list" id="contributorsList">
+                            <!-- Contributors will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Note Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3><i class="fas fa-eye"></i> Preview Note</h3>
+                <button class="close-modal" onclick="closeModal('previewModal')">&times;</button>
+            </div>
+            <div class="preview-content" id="previewContent">
+                <!-- Preview content will be loaded here -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-success" onclick="approveNote()">
+                    <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="btn btn-danger" onclick="rejectNote()">
+                    <i class="fas fa-times"></i> Reject
+                </button>
+                <button class="btn btn-outline" onclick="closeModal('previewModal')">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Note Modal -->
+    <div id="editNoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Note</h3>
+                <button class="close-modal" onclick="closeModal('editNoteModal')">&times;</button>
+            </div>
+            <form id="editNoteForm">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="editTitle" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <select id="editCourse" class="form-control" required>
+                        <option value="CSE">Computer Science</option>
+                        <option value="ECE">Electronics</option>
+                        <option value="ME">Mechanical</option>
+                        <option value="CE">Civil</option>
+                        <option value="EE">Electrical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="editDescription" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="editStatus" class="form-control">
+                        <option value="approved">Approved</option>
+                        <option value="pending">Pending</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> Add New User</h3>
+                <button class="close-modal" onclick="closeModal('addUserModal')">&times;</button>
+            </div>
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <select class="form-control" required>
+                        <option value="CSE">Computer Science</option>
+                        <option value="ECE">Electronics</option>
+                        <option value="ME">Mechanical</option>
+                        <option value="CE">Civil</option>
+                        <option value="EE">Electrical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select class="form-control">
+                        <option value="student">Student</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Area -->
+    <div id="notificationArea"></div>
+
+    <!-- Footer -->
+        <footer id="ft" class="footer">
+        <hr>
+        <div   class="footer-content text-center">
+            <h1 class="name-myname">SANDEEP SHARMA</h1>
+            <h3>MORADABAD , INDIA</h3>
+            
+           
+            <div  class="social-links">
+                <div  class="footer-menu">
+                    <ul class="footer-menu-list">
+                        <li id="facebook"  class="footer-list-items">
+                            <a class="footer-links" href="https://www.facebook.com/share/VGHSKxo3FFs6qRCh/">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://x.com/SandeepsHelp">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://www.instagram.com/sep_x5/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://www.linkedin.com/in/sandeep-sharma-b1a91b29a/">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+
+                        <li style="color: black" class="footer-list-items">
+                            <a class="footer-links" href="https://github.com/sandeep-helps">
+                                <i class="ri-github-fill" style="color: black;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h4 id="Copyrightsection">
+               | Copyright © 2023 All rights reserved |
+                <BR>
+                This portal provides free access to IT course materials including PDFs,
+                notes, and other resources for students.
+                  by Mr Sandeep Sharma.
+            </h4>
+        <p style="color: black;"><i class="fas fa-shield-alt" ></i> Secure Admin Access</p>
+        </div>
+    </footer>
+    <!-- Chart.js for reports -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="JAVASCRIPT/admin.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile - Enggnotes</title>
+    <link rel="stylesheet" href="CSS/student.css">
+    <link rel="stylesheet" href="CSS/comman.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Enggnotes - Student Portal</h1>
+            </div>
+            <div class="user-info">
+                <div class="user-details">
+                    <span id="studentName">John Doe</span>
+                    <span class="badge badge-success" id="studentCourse">CSE</span>
+                </div>
+                <img src="https://via.placeholder.com/150" alt="Profile" class="profile-pic" id="profilePic">
+                <button class="btn btn-outline" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="dashboard">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <a href="#profile" class="nav-item active" onclick="showSection('profile')">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="#upload" class="nav-item" onclick="showSection('upload')">
+                        <i class="fas fa-upload"></i> Upload Notes
+                    </a>
+                    <a href="#my-uploads" class="nav-item" onclick="showSection('my-uploads')">
+                        <i class="fas fa-file-alt"></i> My Uploads
+                    </a>
+                    <a href="#notes" class="nav-item" onclick="showSection('notes')">
+                        <i class="fas fa-book"></i> Browse Notes
+                    </a>
+                    <a href="#settings" class="nav-item" onclick="showSection('settings')">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Profile Section -->
+                <section id="profile-section" class="content-section active">
+                    <div class="section-header">
+                        <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                        <button class="btn btn-primary" onclick="editProfile()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                    </div>
+                    
+                    <div class="profile-grid">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <img src="https://via.placeholder.com/150" alt="Profile" id="profileImage">
+                                <div class="profile-info">
+                                    <h3 id="displayName">John Doe</h3>
+                                    <p id="displayEmail">john.doe@college.edu</p>
+                                    <span class="badge badge-success" id="displayCourse">CSE - 3rd Year</span>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-details">
+                                <div class="detail-item">
+                                    <span class="detail-label"><i class="fas fa-id-card"></i> Student ID:</span>
+                                    <span class="detail-value" id="studentId">20230001</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label"><i class="fas fa-phone"></i> Contact:</span>
+                                    <span class="detail-value" id="contactNumber">+91 9876543210</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label"><i class="fas fa-calendar"></i> Join Date:</span>
+                                    <span class="detail-value" id="joinDate">15 Aug, 2023</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label"><i class="fas fa-upload"></i> Total Uploads:</span>
+                                    <span class="detail-value" id="totalUploads">24</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label"><i class="fas fa-check-circle"></i> Approved Notes:</span>
+                                    <span class="detail-value" id="approvedNotes">18</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-card">
+                            <h3><i class="fas fa-chart-bar"></i> Upload Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="totalUploadsStat">24</div>
+                                    <div class="stat-label">Total Uploads</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="pendingStat">3</div>
+                                    <div class="stat-label">Pending</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="approvedStat">18</div>
+                                    <div class="stat-label">Approved</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="rejectedStat">3</div>
+                                    <div class="stat-label">Rejected</div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 75%"></div>
+                                <span>75% Approval Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upload Notes Section -->
+                <section id="upload-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-cloud-upload-alt"></i> Upload Study Material</h2>
+                    </div>
+                    
+                    <div class="upload-form card">
+                        <form id="uploadForm" onsubmit="uploadNotes(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="noteTitle"><i class="fas fa-heading"></i> Title</label>
+                                    <input type="text" id="noteTitle" class="form-control" 
+                                           placeholder="Enter notes title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="noteSubject"><i class="fas fa-book"></i> Subject</label>
+                                    <input type="text" id="noteSubject" class="form-control" 
+                                           placeholder="e.g., Data Structures, Calculus" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="noteDescription"><i class="fas fa-align-left"></i> Description</label>
+                                <textarea id="noteDescription" class="form-control" rows="4" 
+                                          placeholder="Describe your notes content..." required></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="noteType"><i class="fas fa-file"></i> File Type</label>
+                                    <select id="noteType" class="form-control" required>
+                                        <option value="">Select file type</option>
+                                        <option value="pdf">PDF Document</option>
+                                        <option value="image">Image (JPG, PNG)</option>
+                                        <option value="ppt">PowerPoint Presentation</option>
+                                        <option value="doc">Word Document</option>
+                                        <option value="video">Video Lecture</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="noteCategory"><i class="fas fa-layer-group"></i> Category</label>
+                                    <select id="noteCategory" class="form-control" required>
+                                        <option value="">Select category</option>
+                                        <option value="lecture-notes">Lecture Notes</option>
+                                        <option value="lab-manuals">Lab Manuals</option>
+                                        <option value="question-papers">Question Papers</option>
+                                        <option value="assignments">Assignments</option>
+                                        <option value="projects">Projects</option>
+                                        <option value="tutorials">Tutorials</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="fileUpload"><i class="fas fa-paperclip"></i> Upload File</label>
+                                <div class="file-upload-area" id="fileUploadArea">
+                                    <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                                    <p>Drag & drop your file here or click to browse</p>
+                                    <input type="file" id="fileUpload" hidden accept=".pdf,.jpg,.jpeg,.png,.ppt,.pptx,.doc,.docx,.mp4">
+                                    <button type="button" class="btn btn-outline" onclick="document.getElementById('fileUpload').click()">
+                                        <i class="fas fa-folder-open"></i> Browse Files
+                                    </button>
+                                    <div class="file-info" id="fileInfo"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tags"><i class="fas fa-tags"></i> Tags (comma separated)</label>
+                                <input type="text" id="tags" class="form-control" 
+                                       placeholder="e.g., data-structures, algorithms, sorting">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-upload"></i> Upload Notes
+                                </button>
+                                <button type="button" class="btn btn-outline" onclick="clearForm()">
+                                    <i class="fas fa-times"></i> Clear
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- My Uploads Section -->
+                <section id="my-uploads-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-history"></i> My Uploads</h2>
+                        <div class="filter-controls">
+                            <select id="uploadFilter" class="form-control" onchange="filterUploads()">
+                                <option value="all">All Uploads</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="uploads-list" id="uploadsContainer">
+                        <!-- Uploads will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Browse Notes Section -->
+                <section id="notes-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-search"></i> Browse Notes</h2>
+                        <div class="search-box">
+                            <input type="text" id="searchNotes" class="form-control" 
+                                   placeholder="Search notes by subject, title or tags...">
+                            <button class="btn btn-primary" onclick="searchNotes()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="filters">
+                        <select id="courseFilter" class="form-control" onchange="filterByCourse()">
+                            <option value="">All Courses</option>
+                            <option value="CSE">Computer Science</option>
+                            <option value="ECE">Electronics</option>
+                            <option value="ME">Mechanical</option>
+                            <option value="CE">Civil</option>
+                            <option value="EE">Electrical</option>
+                        </select>
+                        
+                        <select id="typeFilter" class="form-control" onchange="filterByType()">
+                            <option value="">All Types</option>
+                            <option value="pdf">PDF</option>
+                            <option value="image">Image</option>
+                            <option value="ppt">PPT</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
+                    
+                    <div class="notes-grid" id="notesContainer">
+                        <!-- Notes will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-cogs"></i> Account Settings</h2>
+                    </div>
+                    
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3><i class="fas fa-user-edit"></i> Update Profile</h3>
+                            <form id="updateProfileForm">
+                                <div class="form-group">
+                                    <label for="updateName">Full Name</label>
+                                    <input type="text" id="updateName" class="form-control" value="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="updateContact">Contact Number</label>
+                                    <input type="tel" id="updateContact" class="form-control" value="+91 9876543210">
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3><i class="fas fa-camera"></i> Change Profile Picture</h3>
+                            <div class="profile-pic-upload">
+                                <img src="https://via.placeholder.com/150" alt="Current" id="currentProfilePic">
+                                <input type="file" id="newProfilePic" accept="image/*" hidden>
+                                <button class="btn btn-outline" onclick="document.getElementById('newProfilePic').click()">
+                                    <i class="fas fa-upload"></i> Upload New Photo
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3><i class="fas fa-lock"></i> Change Password</h3>
+                            <form id="changePasswordForm">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-key"></i> Update Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Profile</h3>
+                <button class="close-modal" onclick="closeModal('editProfileModal')">&times;</button>
+            </div>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label>Profile Picture</label>
+                    <input type="file" accept="image/*" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" value="john.doe@college.edu" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <input type="text" class="form-control" value="CSE" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" class="form-control" value="+91 9876543210">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Area -->
+    <div id="notificationArea"></div>
+
+           <footer id="ft" class="footer">
+        <hr>
+        <div   class="footer-content text-center">
+            <h1 class="name-myname">SANDEEP SHARMA</h1>
+            <h3>MORADABAD , INDIA</h3>
+            
+           
+            <div  class="social-links">
+                <div  class="footer-menu">
+                    <ul class="footer-menu-list">
+                        <li id="facebook"  class="footer-list-items">
+                            <a class="footer-links" href="https://www.facebook.com/share/VGHSKxo3FFs6qRCh/">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://x.com/SandeepsHelp">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://www.instagram.com/sep_x5/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://www.linkedin.com/in/sandeep-sharma-b1a91b29a/">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+
+                        <li class="footer-list-items">
+                            <a class="footer-links" href="https://github.com/sandeep-helps">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h4 id="Copyrightsection">
+               | Copyright © 2023 All rights reserved |
+                <BR>
+                This portal provides free access to IT course materials including PDFs,
+                notes, and other resources for students.
+                  by Mr Sandeep Sharma.
+            </h4>
+        <p><i class="fas fa-shield-alt"></i> Secure Student Access</p>
+        </div>
+    </footer>
+
+    <script src="JAVASCRIPT/student.js"></script>
+</body>
+</html>

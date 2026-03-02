@@ -1,0 +1,155 @@
+/* ======================================================================================================================= */
+/* Footer */
+/* ======================================================================================================================= */
+
+
+.footer {
+    box-shadow: rgb(255, 255, 255) 0px -23px 15px 0px inset, rgb(255, 255, 255) 0px -15px 10px 0px inset, rgba(0, 0, 0, 0.1) 0px -27px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    
+    color: rgb(0, 0, 0);
+    padding: 4rem 5% 2rem;
+    margin-top: 6rem;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    
+}
+
+.footer hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.244);
+    margin: 2rem auto 3rem;
+    width: 80%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sandeep Sharma Glowing Text */
+.name-myname {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 0 2rem;
+    animation: blink 3s infinite;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    background: linear-gradient(90deg, 
+        #0037ff, #e100ff, #84ff00, #9000ffcd,
+        #00c8ff, #ff0000, #0037ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 100%;
+    animation: gradientFlow 4s linear infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.footer-content h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+}
+
+/* Social Links */
+.social-links {
+    margin: 2.5rem 0 3rem;
+}
+
+.footer-menu {
+    display: inline-block;
+}
+
+.footer-menu-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.footer-list-items {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: rgb(255, 255, 255) 0px -23px 15px 0px inset, rgba(255, 255, 255, 0.763) 0px -15px 10px 0px inset, rgba(0, 0, 0, 0.1) 0px -27px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+}
+
+/* Footer Social Icons Glow Animation */
+.footer-list-items::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.footer-list-items:hover::before {
+    opacity: 1;
+}
+
+.footer-list-items:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: rgb(0, 0, 0);
+}
+
+.footer-links {
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
